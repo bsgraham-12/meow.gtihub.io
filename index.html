@@ -16,56 +16,57 @@
         }
         .container {
             background: white;
-            padding: 30px;
+            padding: 20px;
             border-radius: 15px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-            max-width: 600px;
+            max-width: 90%;
+            width: 350px;
             margin: auto;
             display: none;
         }
         .button {
-            padding: 15px 30px;
+            padding: 12px 20px;
             background: #ff3366;
             color: white;
             border: none;
-            font-size: 20px;
+            font-size: 16px;
             cursor: pointer;
-            border-radius: 10px;
-            margin-top: 20px;
+            border-radius: 8px;
+            margin-top: 15px;
             transition: 0.3s;
+            width: 100%;
         }
         .button:hover {
             background: #e60073;
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
         .heart {
-            width: 100px;
+            width: 80px;
             animation: heartbeat 1.5s infinite;
-            margin-top: 20px;
+            margin-top: 10px;
         }
         @keyframes heartbeat {
             0% { transform: scale(1); }
             50% { transform: scale(1.2); }
             100% { transform: scale(1); }
         }
-        /* Heart Pop Animation */
         .heart-pop {
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             position: absolute;
             background: url('https://cdn-icons-png.flaticon.com/512/833/833472.png') no-repeat center;
             background-size: contain;
             cursor: pointer;
-            animation: float 4s linear infinite;
+            animation: float 3s linear infinite;
         }
         @keyframes float {
             0% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
+            50% { transform: translateY(-10px); }
             100% { transform: translateY(0); }
         }
         .small-heart {
-            width: 20px;
-            height: 20px;
+            width: 15px;
+            height: 15px;
             position: absolute;
             background: url('https://cdn-icons-png.flaticon.com/512/833/833472.png') no-repeat center;
             background-size: contain;
@@ -75,45 +76,40 @@
             0% { transform: scale(1); opacity: 1; }
             100% { transform: scale(0); opacity: 0; }
         }
+        img {
+            width: 100%;
+            max-width: 250px;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
 
-    <!-- Letter Section -->
     <div id="letter" class="container">
-        <h1>For My Best Friend ❤️</h1>
+        <h2>For My Best Friend ❤️</h2>
         <p>Hey Meow,</p>
-        <p>I know I made a mistake, and it hurts me to know that I hurt you. You are the most precious person in my life, and I can't imagine a day without your beautiful smile and our endless conversations. I miss you so much. 💔</p>
-        <p>So, will you forgive this idiot friend of yours? I promise to annoy you less (well, maybe a little less 😜) and to always be there for you, no matter what. Let's go back to being the unstoppable duo that we are! 🤗💖</p>
-        <p>Love you loads,</p>
+        <p>I know I made a mistake, and it hurts me to know that I hurt you. You are the most precious person in my life...</p>
+        <p>So, will you forgive this idiot friend of yours? Let's go back to being the unstoppable duo that we are! 🤗💖</p>
         <p>— Rey</p>
         <button class="button" onclick="showSection('poem')">Next: Special Poem ❤️</button>
     </div>
 
-    <!-- Poem Section -->
     <div id="poem" class="container">
-        <h2>A Special Poem Just for You ❤️</h2>
+        <h2>A Special Poem ❤️</h2>
         <p>Meow, my friend, my shining light,</p>
-        <p>Without you, my world isn’t bright.</p>
-        <p>Through laughter, joy, and even tears,</p>
-        <p>We've built a bond that lasts for years.</p>
-        <p>I miss your smile, your loving care,</p>
-        <p>Our silly jokes, the fun we share.</p>
-        <p>So here I stand with heart so true,</p>
+        <p>Without you, my world isn’t bright...</p>
         <p>Asking softly—do you forgive me too? 💕</p>
         <button class="button" onclick="showSection('memes')">Next: Cute Cat Memes 🐱</button>
     </div>
 
-    <!-- Cat Memes Section -->
     <div id="memes" class="container">
-        <h2>Rey and meow 💝</h2>
-        <img src="https://i.pinimg.com/736x/a9/5f/16/a95f160c6dadb757a2a80a4891e49f77.jpg" width="300">
-        <img src="https://i.chzbgr.com/full/9917598464/hC7A41212/sorry-being-annoying-pawexe-ii-keep-doing-again-and-again" width="300">
-        <br>
+        <h2>Rey and Meow 💝</h2>
+        <img src="https://i.pinimg.com/736x/a9/5f/16/a95f160c6dadb757a2a80a4891e49f77.jpg">
+        <img src="https://i.chzbgr.com/full/9917598464/hC7A41212/sorry-being-annoying-pawexe-ii-keep-doing-again-and-again">
         <button class="button" onclick="showSection('hearts')">Next: Pop Some Hearts ❤️</button>
     </div>
 
-    <!-- Heart Popping Section -->
     <div id="hearts" class="container">
         <h2>Pop Some Hearts, not my butt 😂! ❤️</h2>
         <button class="button" onclick="startHeartGame()">Start Popping! 💕</button>
@@ -121,26 +117,24 @@
 
     <script>
         function showSection(sectionId) {
-            // Hide all sections
             document.getElementById("letter").style.display = "none";
             document.getElementById("poem").style.display = "none";
             document.getElementById("memes").style.display = "none";
             document.getElementById("hearts").style.display = "none";
 
-            // Show selected section
             document.getElementById(sectionId).style.display = "block";
         }
 
         function startHeartGame() {
-            setInterval(createHeart, 500);
+            setInterval(createHeart, 700);
         }
 
         function createHeart() {
             let heart = document.createElement("div");
             heart.classList.add("heart-pop");
 
-            let posX = Math.random() * window.innerWidth * 0.9;
-            let posY = Math.random() * window.innerHeight * 0.9;
+            let posX = Math.random() * window.innerWidth * 0.8;
+            let posY = Math.random() * window.innerHeight * 0.8;
             heart.style.left = `${posX}px`;
             heart.style.top = `${posY}px`;
 
@@ -152,18 +146,17 @@
 
         function popHeart(heart, x, y) {
             heart.remove();
-            for (let i = 0; i < 5; i++) {
+            for (let i = 0; i < 4; i++) {
                 let smallHeart = document.createElement("div");
                 smallHeart.classList.add("small-heart");
-                smallHeart.style.left = `${x + (Math.random() * 50 - 25)}px`;
-                smallHeart.style.top = `${y + (Math.random() * 50 - 25)}px`;
+                smallHeart.style.left = `${x + (Math.random() * 30 - 15)}px`;
+                smallHeart.style.top = `${y + (Math.random() * 30 - 15)}px`;
 
                 document.body.appendChild(smallHeart);
-                setTimeout(() => smallHeart.remove(), 1000);
+                setTimeout(() => smallHeart.remove(), 800);
             }
         }
 
-        // Show first section by default
         showSection('letter');
     </script>
 
